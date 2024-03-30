@@ -1,0 +1,7 @@
+{
+    "exclude": ["commitlint.config.ts"],
+    "compilerOptions": {
+        "strict": true,
+        "skipLibCheck": true
+    }
+}
