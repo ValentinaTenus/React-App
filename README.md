@@ -27,6 +27,17 @@ _To work properly, fill in the **`.env`** file. Use the **`.env.example`** file 
 
 Clone project`s [repo](https://github.com/ValentinaTenus/React-App):
 
+### Shared
+1.  In the command line (terminal) go to the folder shared:
+
+    ```
+    cd /* path to shared folder */
+
+2.  in shared folder run 
+     ```
+    npm run build
+    ```
+
 ### Backend
 
 1.  In the command line (terminal) go to the folder backend:
@@ -37,7 +48,9 @@ Clone project`s [repo](https://github.com/ValentinaTenus/React-App):
 2.  In the backend folder create a file **.env** and copy the contents of the file **.env.example** into it.
  Replace in file **.env** key values to real.
 
-3.  Run [migrations] and seeds to populate the database with demo data. To do this, in the command line (terminal) in the server folder, run:
+3. Create database (for example tasks) 
+
+4.  Run [migrations] and seeds to populate the database with demo data. To do this, in the command line (terminal) in the server folder, run:
 
     ```
     npm run migrate:dev
@@ -46,7 +59,7 @@ Clone project`s [repo](https://github.com/ValentinaTenus/React-App):
 
     Check the database for demo data.
 
-4.  To start the server in the command line (terminal) in the server folder, run:
+5.  To start the server in the command line (terminal) in the server folder, run:
 
     ```
     npm run start:dev
