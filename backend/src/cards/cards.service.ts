@@ -48,8 +48,6 @@ export class CardsService {
       .update(updateCardDto)
       .returning('*')) as Card[];
 
-    console.log(updatedCard);
-
     const activityEntries = [];
 
     if (updatedCard[0].description !== cardToUpdate.description) {

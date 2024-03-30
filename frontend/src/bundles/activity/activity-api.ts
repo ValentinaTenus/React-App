@@ -1,6 +1,6 @@
-import { ApiPath, ContentType } from '../../common/enums/enums.js';
-import { HttpApi } from '../../framework/api/api.js';
-import { type IHttp } from '../../framework/http/http.js';
+import { ApiPath, ContentType } from '~/common/enums/enums.js';
+import { HttpApi } from '~/framework/api/api.js';
+import { type IHttp } from '~/framework/http/http.js';
 
 import { ActivityApiPath } from './enums/enums.js';
 import { type Activity } from './types/types.js';

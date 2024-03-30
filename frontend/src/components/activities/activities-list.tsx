@@ -1,10 +1,11 @@
 import { useCallback, useEffect } from 'react';
 
-import { actions as activitiesActionCreator } from '../../bundles/activity/store';
-import { useAppSelector, useAppDispatch } from '../../common/hooks/hooks';
-import { ActivityItem } from './components/activity-item/activity-item';
+import { actions as activitiesActionCreator } from '~/bundles/activity/store';
+import { useAppSelector, useAppDispatch } from '~/common/hooks/hooks';
+import { IconName } from '~/common/enums/icon-name.enum';
+
 import { Icon } from '../common/icon/icon';
-import { IconName } from '../../common/enums/icon-name.enum';
+import { ActivityItem } from './components/activity-item/activity-item';
 import styles from './styles.module.css';
 
 type ActivitiesListProperties = {

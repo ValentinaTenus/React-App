@@ -1,4 +1,4 @@
- import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { store } from './store.package.js';
 
 type RootState = ReturnType<typeof store.getState>;

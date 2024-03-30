@@ -1,19 +1,19 @@
-import { ContentType, ServerErrorType } from '../../common/enums/enums.js';
+import { ContentType, ServerErrorType } from '~/common/enums/enums.js';
 import {
     type ServerErrorResponse,
     type ValueOf,
-} from '../../common/types/types.js';
+} from '~/common/types/types.js';
+import {
+    configureString,
+} from '~/helpers/helpers.js';
+
+import { type IHttpApi } from './interfaces/interfaces.js';
 import {
     type IHttp,
     HttpCode,
     HTTPError,
     HttpHeader,
 } from '../http/http.js';
-import {
-    configureString,
-} from '../../helpers/helpers.js';
-
-import { type IHttpApi } from './interfaces/interfaces.js';
 import { type HttpApiOptions, type HttpApiResponse } from './types/types.js';
 
 type Constructor = {

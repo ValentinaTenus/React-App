@@ -1,5 +1,6 @@
-import { IconName } from '../../common/enums/icon-name.enum';
-import { IconSize } from '../../common/enums/icon-size.enum';
+import { IconName } from '~/common/enums/icon-name.enum';
+import { IconSize } from '~/common/enums/icon-size.enum';
+
 import { Icon } from '../common/icon/icon';
 import styles from './styles.module.css';
 
@@ -8,7 +9,6 @@ type AddNewCardProperties = {
 }
 
 const AddNewCard: React.FC<AddNewCardProperties> = ({ onClick }) => {
-
     return (
         <div className={styles.add_card}>
             <button

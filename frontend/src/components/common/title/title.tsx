@@ -1,40 +1,33 @@
-import { ChangeEvent, useEffect, useState } from 'react';
+import { ChangeEvent, RefObject } from 'react';
 
-import { useComponentVisible, useDebouncedFunction } from '../../../common/hooks/hooks';
 import { BasicTitle } from '../basic-title/basic-title';
 import { TitleContainer } from '../title-container/title-container';
 import { TitleInput } from '../title-input/title-input';
+
+import styles from './styles.module.css';
 
 type Props = {
   fontSize: "x-large" | "large" | "medium";
   isBold?: boolean;
   title: string;
   width?: number;
-  onChange: (value: string) => void;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  isComponentVisible: boolean;
+  setIsComponentVisible: (value: boolean) => void;
+  ref: RefObject<HTMLDivElement>;
 };
 
-export const Title = ({ onChange, title, fontSize, isBold, width }: Props) => {
-  const { ref, isComponentVisible, setIsComponentVisible } =
-    useComponentVisible(false);
-  const [value, setValue] = useState(title);
-
-  useEffect(() => setValue(title), [title]);
-  
-  const debouncedOnChange = useDebouncedFunction(onChange, 1000);
-
-  const onEdit = (e: ChangeEvent<HTMLInputElement>) => {
-    const newValue = e.target.value;
-    setValue(newValue);
-    debouncedOnChange(newValue); 
-  };
+export const Title = ({ 
+  onChange, fontSize, isBold, width, isComponentVisible, title, setIsComponentVisible, ref 
+}: Props) => {
 
   return (
-    <TitleContainer className="title-container" ref={ref}>
+    <TitleContainer className={styles.title_container} ref={ref}>
       {isComponentVisible ? (
         <TitleInput
-          className="title-input"
-          value={value}
-          onChange={onEdit}
+          className={styles.title__input}
+          value={title}
+          onChange={onChange}
           onBlur={() => setIsComponentVisible(false)}
           fontSize={fontSize}
           isBold={isBold}
@@ -43,10 +36,10 @@ export const Title = ({ onChange, title, fontSize, isBold, width }: Props) => {
         />
       ) : (
         <BasicTitle
-          className="title-content"
+          className={styles.basic_title}
           onClick={() => setIsComponentVisible(true)}
         >
-          {value}
+          {title}
         </BasicTitle>
       )}
     </TitleContainer>

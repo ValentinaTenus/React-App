@@ -1,7 +1,8 @@
 import { createSlice, isAnyOf } from '@reduxjs/toolkit';
 
-import { DataStatus } from '../../../common/enums/enums.js';
-import { type ValueOf } from '../../../common/types/types.js';
+import { DataStatus } from '~/common/enums/enums.js';
+import { type ValueOf } from '~/common/types/types.js';
+
 import { type Card } from '../cards.js';
 
 import { create, deleteCard, getAll, update } from './actions.js';

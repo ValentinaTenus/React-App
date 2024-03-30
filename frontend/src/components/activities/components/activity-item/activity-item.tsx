@@ -1,11 +1,12 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { Activity } from '../../../../bundles/activity/activity';
-import { ActivityChangeTypes } from '../../../../bundles/activity/enums/activity-change-type.enum';
-import { useFormattedDate } from '../../../../common/hooks/hooks';
-import { IconName } from '../../../../common/enums/icon-name.enum';
-import { IconSize } from '../../../../common/enums/icon-size.enum';
+import { Activity } from '~/bundles/activity/activity';
+import { ActivityChangeTypes } from '~/bundles/activity/enums/activity-change-type.enum';
+import { useFormattedDate } from '~/common/hooks/hooks';
+import { IconName } from '~/common/enums/icon-name.enum';
+import { IconSize } from '~/common/enums/icon-size.enum';
 import { Icon } from '../../../common/icon/icon';
+
 import styles from './styles.module.css';
 
 type ActivityItemProperties = {

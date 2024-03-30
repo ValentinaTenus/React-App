@@ -1,5 +1,4 @@
 import React, { type ChangeEvent } from 'react';
-import styles from './TitleInput.module.css';
 
 interface TitleInputProps {
   className?: string;
@@ -24,7 +23,7 @@ const TitleInput: React.FC<TitleInputProps> = ({
 }) => {
   return (
     <input
-      className={`${styles.titleInput} ${className}`}
+      className={className}
       type="text"
       value={value}
       onChange={onChange}

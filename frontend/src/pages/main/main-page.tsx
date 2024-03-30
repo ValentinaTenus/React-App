@@ -1,16 +1,16 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { actions as listActionCreator } from '../../bundles/list/store';
-import { type List } from '../../bundles/list/lists';
-import { Icon } from '../../components/common/icon/icon';
-import { IconName } from '../../common/enums/icon-name.enum';
-import { IconSize } from '../../common/enums/icon-size.enum';
-import { useAppSelector, useAppDispatch } from '../../common/hooks/hooks';
-import { Column } from '../../components/column/column';
-import { NewListForm } from '../../components/new-list-form/new-list-form';
-import styles from './styles.module.css';
-import { ActivitiesList } from '../../components/activities/activities-list';
+import { actions as listActionCreator } from '~/bundles/list/store';
+import { type List } from '~/bundles/list/lists';
+import { ActivitiesList } from '~/components/activities/activities-list';
+import { Icon } from '~/components/common/icon/icon';
+import { Column } from '~/components/column/column';
+import { NewListForm } from '~/components/new-list-form/new-list-form';
+import { IconName } from '~/common/enums/icon-name.enum';
+import { IconSize } from '~/common/enums/icon-size.enum';
+import { useAppSelector, useAppDispatch } from '~/common/hooks/hooks';
 
+import styles from './styles.module.css';
 
 function MainPage() {
   const dispatch = useAppDispatch();

@@ -10,7 +10,8 @@ export class ListsService {
 
   async findAll(): Promise<any[]> {
     try {
-      const lists = await this.knex(DatabaseTableName.LISTS).select('*');
+      const lists = await this.knex(DatabaseTableName.LISTS)
+      .orderBy('createdAt', 'asc').select('*');
 
       for (const list of lists) {
         const cards = await this.knex(DatabaseTableName.CARDS).where(

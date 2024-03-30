@@ -1,6 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
-import { type AsyncThunkConfig } from '../../../framework/store/types/async-thunk-config.type.js';
+import { type AsyncThunkConfig } from '~/framework/store/types/async-thunk-config.type.js';
 
 import { type Card, type CreateCardDto, type UpdateCardDto } from '../types/types';
 

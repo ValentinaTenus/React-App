@@ -14,8 +14,8 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-import { IconName, IconSize } from '../../../common/enums/enums';
-import { type ValueOf } from '../../../common/types/types';
+import { IconName, IconSize } from '~/common/enums/enums';
+import { type ValueOf } from '~/common/types/types';
 
 const iconNameToSvgIcon = {
     [IconName.PLUS]: faPlus,

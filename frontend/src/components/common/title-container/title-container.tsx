@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
-import './titleContainer.css';
+
+import styles from './styles.module.css';
 
 type TitleContainerProps = {
   children: ReactNode;
@@ -9,7 +10,7 @@ type TitleContainerProps = {
 
 const TitleContainer: React.ForwardRefExoticComponent<TitleContainerProps> = React.forwardRef(
   ({ children, className}, ref) => {
-    const combinedClassName = `title-container ${className || ''}`;
+    const combinedClassName = `${styles.title_container} ${className || ''}`;
 
     return (
       <div className={combinedClassName} ref={ref}>

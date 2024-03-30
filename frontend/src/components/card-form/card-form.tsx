@@ -1,8 +1,9 @@
 import { FormEvent, useCallback, useState } from 'react';
 
+import { type Card, type CreateCardDto } from '~/bundles/cards/types/types';
+import { TaskPriority } from '~/bundles/cards/enums/enums';
+
 import styles from './styles.module.css';
-import { type Card, type CreateCardDto } from '../../bundles/cards/types/types';
-import { TaskPriority } from '../../bundles/cards/enums/enums';
 
 type CardFormProperties = {
     card?: Card;

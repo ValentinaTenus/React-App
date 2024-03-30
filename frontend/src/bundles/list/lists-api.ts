@@ -1,6 +1,6 @@
-import { ApiPath, ContentType } from '../../common/enums/enums.js';
-import { HttpApi } from '../../framework/api/api.js';
-import { type IHttp } from '../../framework/http/http.js';
+import { ApiPath, ContentType } from '~/common/enums/enums.js';
+import { HttpApi } from '~/framework/api/api.js';
+import { type IHttp } from '~/framework/http/http.js';
 
 import { ListsApiPath } from './enums/enums.js';
 import { List, type ListWithCards } from './types/types.js';

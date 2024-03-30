@@ -2,12 +2,12 @@ import {
     configureStore,
 } from '@reduxjs/toolkit';
 
-import { activityApi } from '../../bundles/activity/activity.js';
-import { reducer as activitiesReducer } from '../../bundles/activity/store/slice.js';
-import { cardsApi } from '../../bundles/cards/cards.js';
-import { reducer as cardsReducer } from '../../bundles/cards/store/slice.js';
-import { listsApi } from '../../bundles/list/lists.js';
-import { reducer as listsReducer } from '../../bundles/list/store/slice.js';
+import { activityApi } from '~/bundles/activity/activity.js';
+import { reducer as activitiesReducer } from '~/bundles/activity/store/slice.js';
+import { cardsApi } from '~/bundles/cards/cards.js';
+import { reducer as cardsReducer } from '~/bundles/cards/store/slice.js';
+import { listsApi } from '~/bundles/list/lists.js';
+import { reducer as listsReducer } from '~/bundles/list/store/slice.js';
 
 type ExtraArguments = {
     cardsApi: typeof cardsApi;

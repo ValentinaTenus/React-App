@@ -1,7 +1,7 @@
-import { Icon } from '../common/icon/icon';
-import { IconName } from '../../common/enums/icon-name.enum';
-import { IconSize } from '../../common/enums/icon-size.enum';
+import { IconName } from '~/common/enums/icon-name.enum';
+import { IconSize } from '~/common/enums/icon-size.enum';
 
+import { Icon } from '../common/icon/icon';
 import styles from './styles.module.css';
 
 type ListModalProperties = {

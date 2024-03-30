@@ -1,7 +1,8 @@
 import { UpdateCardDto } from 'shared/build/index.js';
-import { ApiPath, ContentType } from '../../common/enums/enums.js';
-import { HttpApi } from '../../framework/api/api.js';
-import { type IHttp } from '../../framework/http/http.js';
+
+import { ApiPath, ContentType } from '~/common/enums/enums.js';
+import { HttpApi } from '~/framework/api/api.js';
+import { type IHttp } from '~/framework/http/http.js';
 
 import { CardsApiPath } from './enums/enums.js';
 import { CreateCardDto, type Card } from './types/types.js';

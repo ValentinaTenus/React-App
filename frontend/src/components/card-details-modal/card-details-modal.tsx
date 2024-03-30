@@ -1,12 +1,13 @@
 import { useCallback, useEffect } from 'react';
 
+import { actions as activitiesActionCreator } from '~/bundles/activity/store';
+import { type Card } from '~/bundles/cards/types/types';
+import { useAppDispatch, useAppSelector } from '~/common/hooks/hooks';
+import { IconName } from '~/common/enums/icon-name.enum';
+import { IconSize } from '~/common/enums/icon-size.enum';
+
 import { ActivityItem } from '../activities/components/activity-item/activity-item';
-import { actions as activitiesActionCreator } from '../../bundles/activity/store';
-import { useAppDispatch, useAppSelector } from '../../common/hooks/hooks';
-import { type Card } from '../../bundles/cards/types/types';
 import { Icon } from '../common/icon/icon';
-import { IconName } from '../../common/enums/icon-name.enum';
-import { IconSize } from '../../common/enums/icon-size.enum';
 import styles from './styles.module.css';
 
 type CardDetailsModalProperties = {

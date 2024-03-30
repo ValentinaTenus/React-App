@@ -1,5 +1,5 @@
-import { config } from '../../framework/config/config.js';
-import { http } from '../../framework/http/http.js';
+import { config } from '~/framework/config/config.js';
+import { http } from '~/framework/http/http.js';
 
 import { CardsApi } from './cards-api';
 
@@ -9,4 +9,4 @@ const cardsApi = new CardsApi({
 });
 
 export { cardsApi };
-export { type Card } from './types/types';
+export { type Card, type UpdateCardDto } from './types/types';

@@ -1,6 +1,7 @@
 import { FormEvent, useCallback, useState } from 'react';
 
-import { List } from '../../bundles/list/lists';
+import { List } from '~/bundles/list/lists';
+
 import styles from './styles.module.css';
 
 type NewListFormProperties = {

@@ -1,10 +1,10 @@
 import { HTTPError as LibraryHttpError } from 'shared/build/index.js';
 
-import { type ServerErrorType } from '../../../common/enums/enums.js';
+import { type ServerErrorType } from '~/common/enums/enums.js';
 import {
     type ServerErrorDetail,
     type ValueOf,
-} from '../../../common/types/types.js';
+} from '~/common/types/types.js';
 
 import { type HttpCode } from '../enums/enums.js';
 

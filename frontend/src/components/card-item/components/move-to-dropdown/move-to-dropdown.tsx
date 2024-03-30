@@ -1,9 +1,10 @@
 import { useState } from 'react';
 
-import { type ListOption } from '../../../../common/types/types';
-import { IconName } from '../../../../common/enums/icon-name.enum';
-import { IconSize } from '../../../../common/enums/icon-size.enum';
+import { IconName } from '~/common/enums/icon-name.enum';
+import { IconSize } from '~/common/enums/icon-size.enum';
+import { type ListOption } from '~/common/types/types';
 import { Icon } from '../../../common/icon/icon';
+
 import styles from './styles.module.css';
 
 type MoveToProperties = {

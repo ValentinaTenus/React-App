@@ -1,10 +1,11 @@
 import { useCallback } from "react";
 
-import { type Card } from "../../bundles/cards/cards";
-import { useAppDispatch } from "../../common/hooks/hooks";
-import { actions as cardActionCreator } from "../../bundles/cards/store";
-import { type ListOption } from "../../common/types/list-options";
-import { CardItem } from "../card-item/card-item";
+import { type Card } from '~/bundles/cards/cards';
+import { actions as cardActionCreator } from '~/bundles/cards/store';
+import { useAppDispatch } from '~/common/hooks/hooks';
+import { type ListOption } from '~/common/types/list-options';
+
+import { CardItem } from '../card-item/card-item';
 import styles from './styles.module.css';
 
 type CardListProperties = {

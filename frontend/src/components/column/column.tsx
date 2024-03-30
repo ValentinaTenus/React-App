@@ -1,16 +1,17 @@
 import { useCallback, useEffect, useState, useRef } from 'react';
 
-import { useDebouncedFunction } from '../../common/hooks/hooks';
-import { type Card } from '../../bundles/cards/cards';
-import { CreateCardDto } from '../../bundles/cards/types/types';
-import { type ListOption } from '../../common/types/list-options';
-import { useAppDispatch } from '../../common/hooks/hooks';
+import { actions as cardsActionCreator } from '~/bundles/cards/store';
+import { type Card, type CreateCardDto } from '~/bundles/cards/types/types';
+import { actions  as listsActionCreator } from '~/bundles/list/store';
+import { useAppDispatch, useComponentVisible, useDebouncedFunction } from '~/common/hooks/hooks';
+import { type ListOption } from '~/common/types/list-options';
+
 import { AddNewCard } from '../add-new-card/add-new-card';
 import { CardForm } from '../card-form/card-form';
 import { CardList } from '../card-list/card-list';
-import { actions  as listsActionCreator } from '../../bundles/list/store';
-import { actions as cardsActionCreator } from '../../bundles/cards/store';
+import { Title } from '../common/title/title';
 import { ListModal } from '../list-modal/list-modal';
+
 import styles from './styles.module.css';
 
 type ColumnProps = {
@@ -26,9 +27,10 @@ const Column: React.FC<ColumnProps> = ({ listId, listOptions, listName, cards, c
   const dispatch = useAppDispatch();
   const [isCreatingCard, setIsCreatingCard] = useState(false);
   const [isListModalOpen, setIsListModalOpen] = useState(false);
-  const [isListEdit, setIsListEdit] = useState(false);
   const [newListName, setNewListName] = useState(listName);
-
+  
+  const { ref, isComponentVisible, setIsComponentVisible } =
+    useComponentVisible(false);
   const modalRef = useRef<HTMLDivElement>(null);
 
   const handleCardCreate = useCallback(() => {
@@ -82,9 +84,9 @@ const Column: React.FC<ColumnProps> = ({ listId, listOptions, listName, cards, c
   }, [setIsCreatingCard, setIsListModalOpen]);
 
   const handleEditList = useCallback(() => {
-    setIsListEdit(true);
+    setIsComponentVisible(true);
     setIsListModalOpen(false);
-  }, [setIsListEdit, setIsListModalOpen]);
+  }, [setIsListModalOpen]);
 
   const handleDeleteList = useCallback(() => {
     void dispatch(listsActionCreator.deleteList(listId) as any);
@@ -95,16 +97,14 @@ const Column: React.FC<ColumnProps> = ({ listId, listOptions, listName, cards, c
     <>
       <div className={styles.column}>
         <div className={styles.column_first_block}>
-          { isListEdit
-            ? <input
-              placeholder={newListName}
-              value={newListName}
-              onChange={handleChangeListName}
-              className={styles.first_block__input}
-              autoFocus
-            />
-            : <p className={styles.first_block__title}>{listName}</p>
-          }
+          <Title
+            setIsComponentVisible={setIsComponentVisible}
+            isComponentVisible={isComponentVisible}
+            ref={ref}
+            fontSize={'large'} 
+            title={newListName} 
+            onChange={handleChangeListName}
+          />
           <div className={styles.first_block__content}>
               <span 
                 className={styles.first_block__cards_amount}
@@ -128,7 +128,7 @@ const Column: React.FC<ColumnProps> = ({ listId, listOptions, listName, cards, c
         <AddNewCard onClick={handleCardCreate} />
         {cards &&  <CardList listOptions={listOptions} cards={cards} /> }
       </div>
-      {isCreatingCard && (
+      { isCreatingCard && (
         <CardForm onCancel={handleCancelCreate} onConfirm={handleConfirmCreate} />
       )}
     </>

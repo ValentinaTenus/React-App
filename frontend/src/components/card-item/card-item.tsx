@@ -1,17 +1,17 @@
 import { useCallback, useEffect,useState,  useRef } from 'react';
 
-import { Card } from '../../bundles/cards/cards';
-import { actions as cardsActionCreator } from '../../bundles/cards/store';
-import { IconName, IconSize } from '../../common/enums/enums';
-import { useAppDispatch } from '../../common/hooks/hooks';
-import { type ListOption } from '../../common/types/types';
+import { type Card, type UpdateCardDto } from '~/bundles/cards/cards';
+import { actions as cardsActionCreator } from '~/bundles/cards/store';
+import { IconName, IconSize } from '~/common/enums/enums';
+import { useAppDispatch } from '~/common/hooks/hooks';
+import { type ListOption } from '~/common/types/types';
+
 import { CardButtonsModal } from '../card-buttons-modal/card-buttons-modal';
-import { Icon } from '../common/icon/icon';
+import { CardDetailsModal } from '../card-details-modal/card-details-modal';
 import { CardForm } from '../card-form/card-form';
+import { Icon } from '../common/icon/icon';
 import { MoveToDropdown } from './components/components';
 import styles from './styles.module.css';
-import { UpdateCardDto } from 'shared/build';
-import { CardDetailsModal } from '../card-details-modal/card-details-modal';
 
 type CardProperties = {
     card: Card;

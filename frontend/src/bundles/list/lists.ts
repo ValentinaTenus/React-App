@@ -1,5 +1,5 @@
-import { config } from '../../framework/config/config.js';
-import { http } from '../../framework/http/http.js';
+import { config } from '~/framework/config/config.js';
+import { http } from '~/framework/http/http.js';
 
 import { ListsApi } from './lists-api';
 
