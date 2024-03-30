@@ -1,0 +1,16 @@
+{
+    "extends": "../tsconfig.json",
+    "include": ["src"],
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "baseUrl": ".",
+        "paths": {
+            "~/*": ["./src/*"]
+        },
+        "outDir": "build",
+        "declaration": true
+    }
+}
