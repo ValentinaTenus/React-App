@@ -1,0 +1,13 @@
+.basic_title {
+    padding: 0px;
+    transition: background-color ease 0.2s;
+    flex-grow: 1;
+    user-select: none;
+    position: relative;
+    margin: 0.6em 0;
+}
+  
+.basic_title:focus {
+    outline: 2px solid #998dd9;
+    outline-offset: 2px;
+}

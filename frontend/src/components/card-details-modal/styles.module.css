@@ -1,0 +1,115 @@
+.card_modal {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal_content {
+    width: 100%;
+    max-width: 70%;
+    border-radius: 25px;
+    background-color: rgb(255, 255, 255);
+}
+
+.card_modal__header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 25px;
+    padding: 20px;
+    border-radius: 25px 25px 0 0 ;
+    background-color: rgb(72, 72, 111);
+}
+
+.card_modal__cross_button{
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+.modal_main_info {
+    display: flex;
+    min-height: 550px;
+}
+
+.modal_card_details {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    width: 60%;
+}
+
+.modal_card_details__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.modal_card_details__title{
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.modal_card__edit_button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: none;
+    background: none;
+    font-size: 16px;
+}
+
+.card_details_data {
+    display: flex;
+    flex-direction: column;
+}
+
+.details__item {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    width: 50%;
+}
+
+.details__item_icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 50%;
+}
+
+.details__item_data {
+    width: 50%;
+}
+
+.card_details_description {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+}
+
+.card_details_description__title{
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.modal_activity {
+    min-height: 100%;
+    padding: 20px;
+    background-color: rgb(237, 229, 229);
+    min-width: 40%;
+    border-radius: 0 0 25px 0;
+}
+
+.modal_activity__title{
+    font-weight: 600;
+    font-size: 18px;
+}

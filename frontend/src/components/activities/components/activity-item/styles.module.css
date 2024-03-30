@@ -1,0 +1,17 @@
+.activities_list__data {
+    display: inline;
+}
+
+.activities_list__name {
+    font-weight: 600;
+}
+
+.activities_list__value {
+    font-style: italic;
+}
+
+.activities_list__date {
+    margin-top: 10px;
+    font-style: italic;
+    font-size: 15px;
+}
