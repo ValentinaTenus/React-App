@@ -1,2 +1,1 @@
-export { type List } from './list.type';
-export { type ListWithCards } from './list-with-cards.type.ts';
+export { type List,  type ListWithCards  } from 'shared/build/index.js';
