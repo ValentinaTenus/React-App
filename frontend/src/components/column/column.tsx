@@ -100,7 +100,7 @@ const Column: React.FC<ColumnProps> = ({ listId, listOptions, listName, cards, c
           <Title
             setIsComponentVisible={setIsComponentVisible}
             isComponentVisible={isComponentVisible}
-            ref={ref}
+            titleRef={ref}
             fontSize={'large'} 
             title={newListName} 
             onChange={handleChangeListName}
@@ -126,7 +126,7 @@ const Column: React.FC<ColumnProps> = ({ listId, listOptions, listName, cards, c
           </div>
         </div>
         <AddNewCard onClick={handleCardCreate} />
-        {cards &&  <CardList listOptions={listOptions} cards={cards} /> }
+        { cards &&  <CardList listOptions={listOptions} cards={cards} /> }
       </div>
       { isCreatingCard && (
         <CardForm onCancel={handleCancelCreate} onConfirm={handleConfirmCreate} />

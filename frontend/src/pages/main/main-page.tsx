@@ -1,11 +1,10 @@
 import { useCallback, useEffect, useState } from 'react';
 
 import { actions as listActionCreator } from '~/bundles/list/store';
-import { type List } from '~/bundles/list/lists';
 import { ActivitiesList } from '~/components/activities/activities-list';
 import { Icon } from '~/components/common/icon/icon';
 import { Column } from '~/components/column/column';
-import { NewListForm } from '~/components/new-list-form/new-list-form';
+import { ColumnCreator } from '~/components/column-creator/column-creator';
 import { IconName } from '~/common/enums/icon-name.enum';
 import { IconSize } from '~/common/enums/icon-size.enum';
 import { useAppSelector, useAppDispatch } from '~/common/hooks/hooks';
@@ -20,7 +19,7 @@ function MainPage() {
     listOptions: state.lists.listOptions,
     cards: state.cards.cards
   }));
-
+  
   const [isNewListCreate, setIsNewListCreate] = useState(false);
   const [isHistoryShown, setIsHistoryShown] = useState(false);
 
@@ -32,10 +31,6 @@ function MainPage() {
     setIsNewListCreate(true);
   }, []);
 
-  const handleCloseCreateNewList = useCallback(async(): Promise<void> => {
-    setIsNewListCreate(true);
-  }, []);
-
   const handleShowHistory = useCallback(() => {
     setIsHistoryShown(true);
   }, []);
@@ -44,11 +39,11 @@ function MainPage() {
     setIsHistoryShown(false);
   }, []);
 
-  const handleAddNewList = useCallback(async(newListData: Partial<List>): Promise<void> => {
+  const handleAddNewList = useCallback(async(listName: string): Promise<void> => {
     try {
-      void dispatch(listActionCreator.create({name: newListData.name}) as any);
-      setIsNewListCreate(false);
-      handleListsLoad();
+        void dispatch(listActionCreator.create({name: listName}) as any);
+        setIsNewListCreate(false);
+        handleListsLoad();
     } catch (error) {
       console.log(error)
     }
@@ -83,6 +78,7 @@ function MainPage() {
                     />
                     Create New List
                   </button>
+                { isHistoryShown && <ActivitiesList onClose={handleCloseHistory} /> }
               </div>
           </div>
           <div className={styles.main_page_columns}>
@@ -99,15 +95,13 @@ function MainPage() {
                   />
                   ))
               }
+              {isNewListCreate && 
+                <ColumnCreator 
+                  onCreateList={handleAddNewList}
+                />
+              }
           </div>
       </div>
-      {isNewListCreate && 
-        <NewListForm 
-          onCancel={handleCloseCreateNewList}
-          onConfirm={handleAddNewList}
-        />
-      }
-      { isHistoryShown && <ActivitiesList onClose={handleCloseHistory} /> }
     </>
   )
 }
