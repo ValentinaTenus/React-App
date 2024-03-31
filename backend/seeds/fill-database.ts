@@ -12,10 +12,10 @@ const deleteFromTables = async (
 };
 
 const listsSeed = [
-    { name: 'To Do', createdAt: new Date(2024, 2, 15) },
-    { name: 'Planned',  createdAt: new Date(2024, 3, 15) },
-    { name: 'In Progress',  createdAt: new Date(2024, 5, 26) },
-    { name: 'Closed', createdAt: new Date(2024, 8, 12) },
+    { name: 'To Do', createdAt: new Date(2024, 2, 10) },
+    { name: 'Planned',  createdAt: new Date(2024, 2, 12) },
+    { name: 'In Progress',  createdAt: new Date(2024, 2, 13) },
+    { name: 'Closed', createdAt: new Date(2024, 2, 14) },
 ];
 
 const cardsSeed = [
