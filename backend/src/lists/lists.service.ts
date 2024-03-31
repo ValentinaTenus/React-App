@@ -36,23 +36,23 @@ export class ListsService {
     return this.knex(DatabaseTableName.LISTS).where({ id }).first();
   }
 
-  async create(createListDto: CreateListDto): Promise<List> {
+  async create(createListDto: CreateListDto): Promise<List[]> {
     return this.knex(DatabaseTableName.LISTS)
       .insert(createListDto)
-      .returning('*')[0];
+      .returning('*');
   }
 
-  async update(id: string, updateListDto: UpdateListDto): Promise<List> {
+  async update(id: string, updateListDto: UpdateListDto): Promise<List[]> {
     return this.knex(DatabaseTableName.LISTS)
       .where({ id })
       .update(updateListDto)
-      .returning('*')[0];
+      .returning('*');
   }
 
-  async delete(id: string): Promise<List> {
+  async delete(id: string): Promise<List[]> {
     return this.knex(DatabaseTableName.LISTS)
       .where({ id })
       .del()
-      .returning('*')[0];
+      .returning('*');
   }
 }
