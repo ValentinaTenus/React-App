@@ -1,11 +1,11 @@
 .main_page {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     gap: 25px;
     padding: 25px;
     width: fit-content;
     overflow: auto;
+    height: 100vh;
 }
 
 .main_page__head {
