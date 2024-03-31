@@ -4,4 +4,5 @@ import { ConfigService } from '@nestjs/config';
 @Module({
   providers: [ConfigService],
 })
+
 export class ConfigModule {}

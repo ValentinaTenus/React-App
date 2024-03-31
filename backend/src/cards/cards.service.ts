@@ -2,10 +2,10 @@ import { Injectable } from '@nestjs/common';
 import { InjectConnection } from 'nest-knexjs';
 import { Knex } from 'knex';
 
-import { DatabaseTableName } from '../common/database/enums/enums';
-import { ActivityChangeTypes } from '../common/enums/enums';
-import { type Card, type CreateCardDto, type UpdateCardDto } from './dto/dto';
-import { ActivityService } from 'src/activity/activity.service';
+import { ActivityService } from '../activity/activity.service';
+import { DatabaseColumnName, DatabaseTableName } from '../common/database/enums/enums';
+import { ActivityChangeTypes, SortDirection } from '../common/enums/enums';
+import { type Card, type CreateCardDto, type UpdateCardDto } from './types/types';
 
 @Injectable()
 export class CardsService {
@@ -14,17 +14,17 @@ export class CardsService {
     private readonly activityService: ActivityService,
   ) {}
 
-  async findAll(): Promise<any[]> {
+  async findAll(): Promise<Card[]> {
     return this.knex(DatabaseTableName.CARDS)
-      .orderBy('createdAt', 'asc')
+      .orderBy(DatabaseColumnName.CREATED_AT, SortDirection.ASC)
       .select('*');
   }
 
-  async findOne(id: string): Promise<any> {
+  async findOne(id: string): Promise<Card> {
     return this.knex(DatabaseTableName.CARDS).where({ id }).first();
   }
 
-  async create(createCardDto: CreateCardDto): Promise<Card[]> {
+  async create(createCardDto: CreateCardDto): Promise<Card> {
     const newCard = (await this.knex(DatabaseTableName.CARDS)
       .insert(createCardDto)
       .returning('*')) as Card[];
@@ -38,11 +38,11 @@ export class CardsService {
     };
     await this.activityService.create(newActivityEntry);
 
-    return newCard;
+    return newCard[0];
   }
 
-  async update(id: string, updateCardDto: UpdateCardDto): Promise<any> {
-    const cardToUpdate = await this.findOne(id);
+  async update(id: string, updateCardDto: UpdateCardDto): Promise<Card> {
+    const cardToUpdate: Card = await this.findOne(id);
     const updatedCard = (await this.knex(DatabaseTableName.CARDS)
       .where({ id })
       .update(updateCardDto)
@@ -73,8 +73,8 @@ export class CardsService {
     }
 
     if (
-      updatedCard[0].dueDate.toString().split('T') !==
-      cardToUpdate.dueDate.toString().split('T')
+      new Date(updatedCard[0].dueDate).getTime() !==
+      new Date(cardToUpdate.dueDate).getTime()
     ) {
       activityEntries.push({
         cardId: id,
@@ -113,7 +113,7 @@ export class CardsService {
       activityEntries.map((entry) => this.activityService.create(entry)),
     );
 
-    return updatedCard;
+    return updatedCard[0];
   }
 
   async delete(id: string): Promise<Card> {

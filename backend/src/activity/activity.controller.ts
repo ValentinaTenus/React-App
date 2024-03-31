@@ -1,4 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common';
+
 import { ActivityService } from './activity.service';
 
 @Controller('activity')

@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { KnexModule } from 'nest-knexjs';
+
 import { ActivityController } from './activity.controller';
 import { ActivityService } from './activity.service';
 

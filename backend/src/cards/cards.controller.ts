@@ -7,8 +7,9 @@ import {
   Patch,
   Delete,
 } from '@nestjs/common';
+
 import { CardsService } from './cards.service';
-import { type CreateCardDto, type UpdateCardDto } from './dto/dto';
+import { type CreateCardDto, type UpdateCardDto } from './types/types';
 
 @Controller('cards')
 export class CardsController {

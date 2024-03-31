@@ -1,0 +1,13 @@
+enum ConfigKeys {
+    DB_CLIENT = 'DB_CLIENT',
+    DB_HOST = 'DB_HOST',
+    DB_PORT = 'DB_PORT',
+    DB_USER = 'DB_USER',
+    DB_PASSWORD = 'DB_PASSWORD',
+    DB_DATABASE = 'DB_DATABASE',
+    DB_CONNECTION_STRING = 'DB_CONNECTION_STRING',
+    APP_PORT = 'APP_PORT',
+    POSTRGRES_VERSION = '15.2'
+}
+
+export { ConfigKeys };

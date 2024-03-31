@@ -8,7 +8,7 @@ import {
   Delete,
 } from '@nestjs/common';
 import { ListsService } from './lists.service';
-import { CreateListDto, UpdateListDto } from './dto/dto';
+import { type CreateListDto, type UpdateListDto } from './types/types';
 
 @Controller('lists')
 export class ListsController {
