@@ -3,7 +3,7 @@ import { useCallback, useEffect,useState,  useRef } from 'react';
 import { type Card, type UpdateCardDto } from '~/bundles/cards/cards';
 import { actions as cardsActionCreator } from '~/bundles/cards/store';
 import { IconName, IconSize } from '~/common/enums/enums';
-import { useAppDispatch } from '~/common/hooks/hooks';
+import { useAppDispatch, useFormattedDate, DateFormatType } from '~/common/hooks/hooks';
 import { type ListOption } from '~/common/types/types';
 
 import { CardButtonsModal } from '../card-buttons-modal/card-buttons-modal';
@@ -23,6 +23,8 @@ const CardItem: React.FC<CardProperties> = ({ card, onMoveTo, moveToOptions }) =
   const { name, description, dueDate, priority } = card;
 
   const date = dueDate.split('T')[0];
+  const formattedDate = useFormattedDate(date, DateFormatType.CUSTOM);
+  
   const dispatch = useAppDispatch();
   const modalRef = useRef<HTMLDivElement>(null);
   const [isCardButtonsModalOpen, setIsCardButtonsModalOpen] = useState(false);
@@ -59,7 +61,7 @@ const CardItem: React.FC<CardProperties> = ({ card, onMoveTo, moveToOptions }) =
 
   const handleCancelUpdate = useCallback(() => {
     setIsCardEdit(false);
-  }, []);
+  }, [setIsCardEdit]);
 
   const handleConfirmUpdate = useCallback((newCardData: UpdateCardDto) => {
     void dispatch(cardsActionCreator.update({id: card.id, payload: newCardData }) as any);
@@ -73,6 +75,7 @@ const CardItem: React.FC<CardProperties> = ({ card, onMoveTo, moveToOptions }) =
       }
     }
     document.addEventListener('mousedown', handleClickOutside);
+
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
@@ -100,11 +103,12 @@ const CardItem: React.FC<CardProperties> = ({ card, onMoveTo, moveToOptions }) =
           </div>
           <div
             onDoubleClick={handleShowCardDetailsModal}
-            className={styles.card_body}>
+            className={styles.card_body}
+          >
             <p className={styles.card_description}>{description}</p>
             <div className={styles.card_date}>
               <Icon name={IconName.CALENDAR} />
-              <span>{date}</span>
+              <span>{formattedDate}</span>
             </div>
             <p className={styles.card_level}
             > 

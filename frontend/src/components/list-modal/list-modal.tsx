@@ -29,7 +29,7 @@ const ListModal: React.FC<ListModalProperties> = ({onAddNewCard, onEditList, onD
                 Add New Card
             </button>
             <button
-                className={styles.list_modal__button}
+                className={styles.list_modal__delete_button}
                 onClick={onDeleteList}
             >
                 <Icon name={IconName.TRASH_CAN} size={IconSize.MEDIUM}/>

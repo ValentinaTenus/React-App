@@ -85,7 +85,7 @@ const CardDetailsModal: React.FC<CardDetailsModalProperties> = ({ card, onClose,
                     </div>
                     <div className={styles.modal_activity}>
                         <h2 className={styles.modal_activity__title}>Activity</h2>
-                        <div>
+                        <div className={styles.modal_activity_content}>
                             {openCardActivity.slice(0, 10).map((activity, index) => (
                                 <ActivityItem
                                     key={index}

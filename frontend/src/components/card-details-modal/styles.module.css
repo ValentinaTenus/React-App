@@ -42,7 +42,7 @@
 .modal_card_details {
     display: flex;
     flex-direction: column;
-    padding: 20px;
+    padding: 20px 40px;
     width: 60%;
 }
 
@@ -63,7 +63,8 @@
     gap: 8px;
     border: none;
     background: none;
-    font-size: 16px;
+    font-size: 18px;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .card_details_data {
@@ -111,5 +112,11 @@
 
 .modal_activity__title{
     font-weight: 600;
-    font-size: 18px;
+    font-size: 20px;
+}
+
+.modal_activity_content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }

@@ -20,7 +20,7 @@ const CardButtonsModal: React.FC<CardButtonsModalProperties> = ({ onEditCard, on
                 Edit
             </button>
             <button
-                className={styles.card_modal__button}
+                className={styles.card_modal__delete_button}
                 onClick={onDeleteCard}
             >
                 <Icon name={IconName.TRASH_CAN} size={IconSize.MEDIUM}/>

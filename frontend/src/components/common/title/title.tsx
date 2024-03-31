@@ -14,15 +14,15 @@ type Props = {
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   isComponentVisible: boolean;
   setIsComponentVisible: (value: boolean) => void;
-  ref: RefObject<HTMLDivElement>;
+  titleRef: RefObject<HTMLDivElement>;
 };
 
 export const Title = ({ 
-  onChange, fontSize, isBold, width, isComponentVisible, title, setIsComponentVisible, ref 
+  onChange, fontSize, isBold, width, isComponentVisible, title, setIsComponentVisible, titleRef 
 }: Props) => {
 
   return (
-    <TitleContainer className={styles.title_container} ref={ref}>
+    <TitleContainer className={styles.title_container} ref={titleRef}>
       {isComponentVisible ? (
         <TitleInput
           className={styles.title__input}

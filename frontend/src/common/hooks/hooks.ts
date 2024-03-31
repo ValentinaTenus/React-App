@@ -2,4 +2,4 @@ export { useComponentVisible } from './use-component-visible/use-component-visib
 export { useDebouncedFunction } from './use-debounce/use-debounce';
 export { useAppDispatch } from './use-app-dispatch/use-app-dispatch.hook';
 export { useAppSelector } from './use-app-selector/use-app-selector.hook';
-export { useFormattedDate } from './use-formatted-date';
+export { useFormattedDate, DateFormatType } from './use-formatted-date';
