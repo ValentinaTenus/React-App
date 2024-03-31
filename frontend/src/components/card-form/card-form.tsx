@@ -17,7 +17,7 @@ const CardForm: React.FC<CardFormProperties> = ({ card, onCancel, onConfirm }) =
     const [name, setName] = useState(card?.name);
     const [description, setDescription] = useState(card?.description);
     const [dueDate, setDueDate] = useState(cardDate || today);
-    const [priority, setPriority] = useState(card?.priority || 'low');
+    const [priority, setPriority] = useState(card?.priority || TaskPriority.LOW);
   
     const handleNameChange = useCallback((event: React.ChangeEvent<HTMLInputElement>) => {
       setName(event.target.value);
@@ -32,7 +32,16 @@ const CardForm: React.FC<CardFormProperties> = ({ card, onCancel, onConfirm }) =
     }, [setDueDate, dueDate]);
   
     const handlePriorityChange = useCallback((event: React.ChangeEvent<HTMLSelectElement>) => {
-      setPriority(event.target.value);
+        const newPriority = event.target.value;
+        if(newPriority === TaskPriority.LOW){
+            setPriority (TaskPriority.LOW);
+        }
+        if(newPriority === TaskPriority.MEDIUM){
+            setPriority (TaskPriority.MEDIUM);
+        }
+        if(newPriority === TaskPriority.HEIGHT){
+            setPriority (TaskPriority.HEIGHT);
+        }
     },[setPriority, priority]);
   
     const handleSubmit = useCallback((event: FormEvent<HTMLButtonElement>) => {
@@ -47,7 +56,7 @@ const CardForm: React.FC<CardFormProperties> = ({ card, onCancel, onConfirm }) =
         setName('');
         setDescription('');
         setDueDate('');
-        setPriority('');
+        setPriority(TaskPriority.LOW);
     }, [name, description, dueDate, priority, onConfirm]);
   
     return (
@@ -80,9 +89,9 @@ const CardForm: React.FC<CardFormProperties> = ({ card, onCancel, onConfirm }) =
                         className={styles.form__input}
                         value={priority} 
                         onChange={handlePriorityChange}>
-                        <option value='low'>{TaskPriority.LOW}</option>
-                        <option value='medium'>{TaskPriority.MEDIUM}</option>
-                        <option value='height'>{TaskPriority.HEIGHT}</option>
+                        <option value={TaskPriority.LOW}>{TaskPriority.LOW}</option>
+                        <option value={TaskPriority.MEDIUM}>{TaskPriority.MEDIUM}</option>
+                        <option value={TaskPriority.HEIGHT}>{TaskPriority.HEIGHT}</option>
                     </select>
                     <label
                         className={styles.form__label}  
