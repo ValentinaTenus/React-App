@@ -1,5 +1,4 @@
 import { TaskPriority } from '../enums/enums';
-import { type ValueOf } from '~/types/value-of.type';
 
 type Card = {
     id: string;
@@ -7,7 +6,7 @@ type Card = {
     description: string;
     status: string;
     dueDate: string;
-    priority: ValueOf<TaskPriority>;
+    priority: TaskPriority;
     listId: string;
     createdAt: Date;
     updatedAt: Date;
