@@ -8,13 +8,15 @@ This is the repository responsible for React-App app with list of tasks.
 
 -   [Backend](./backend) — React-App application backend.
 
-_To work properly, fill in the **`.env`** file. Use the **`.env.example`** file as an example._
+_To work properly, install dependencies **` npm install`**  and fill in the **`.env`** file. Use the **`.env.example`** file as an example._
 
 -   [Frontend](./frontend) — React-App application frontend.
 
-  _To work properly, fill in the **`.env`** file. Use the **`.env.example`** file as an example._
+  _To work properly, install dependencies **` npm install`** and fill in the **`.env`** file. Use the **`.env.example`** file as an example._
 
   -   [Shared](./shared) — React-App application common modules for reuse.
+
+  - To work properly, install dependencies **` npm install`** 
 
   
 ## 🖍 Requirements
