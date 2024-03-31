@@ -1,6 +1,12 @@
 export { type Activity,  type CreateActivityDto } from './bundles/activity/activity.js'
 export { CardsApiPath, TaskPriority, type Card, type CreateCardDto, type UpdateCardDto } from './bundles/cards/cards.js';
-export { ListsApiPath } from './bundles/lists/lists.js';
+export {
+    ListsApiPath,   
+    type CreateListDto,
+    type List,
+    type ListWithCards,
+    type UpdateListDto
+} from './bundles/lists/lists.js';
 export {
     AppEnvironment,
     ApiPath,
