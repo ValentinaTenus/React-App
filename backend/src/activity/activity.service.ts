@@ -23,9 +23,9 @@ export class ActivityService {
       .returning('*');
   }
 
-  async create(createActivity: CreateActivityDto): Promise<Activity> {
+  async create(createActivity: CreateActivityDto): Promise<Activity[]> {
     return this.knex(DatabaseTableName.ACTIVITY)
       .insert(createActivity)
-      .returning('*')[0];
+      .returning('*');
   }
 }

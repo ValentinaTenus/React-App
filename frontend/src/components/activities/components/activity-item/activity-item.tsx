@@ -22,7 +22,7 @@ const ActivityItem: React.FC<ActivityItemProperties> = ({ activity }) => {
         if( activity.changeType === ActivityChangeTypes.CHANGED_DUE_DATE 
             || activity.changeType === ActivityChangeTypes.ADDED_DUE_DATE ){
                 setActivityOldValue(activity.oldValue.split('T')[0]);
-                setActivityNewValue(activity.oldValue.split('T')[0]);
+                setActivityNewValue(activity.newValue.split('T')[0]);
             }
     },[activity]);
 

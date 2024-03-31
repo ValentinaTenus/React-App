@@ -43,11 +43,11 @@ export class CardsService {
 
   async update(id: string, updateCardDto: UpdateCardDto): Promise<Card> {
     const cardToUpdate: Card = await this.findOne(id);
+    const parsedDueDate = updateCardDto.dueDate &&  new Date(updateCardDto.dueDate);
     const updatedCard = (await this.knex(DatabaseTableName.CARDS)
       .where({ id })
-      .update(updateCardDto)
+      .update({...updateCardDto, dueDate: parsedDueDate})
       .returning('*')) as Card[];
-
     const activityEntries = [];
 
     if (updatedCard[0].description !== cardToUpdate.description) {
@@ -72,9 +72,9 @@ export class CardsService {
       });
     }
 
-    if (
-      new Date(updatedCard[0].dueDate).getTime() !==
-      new Date(cardToUpdate.dueDate).getTime()
+    if ( updateCardDto.dueDate &&
+      new Date(cardToUpdate.dueDate).getTime() !==
+      parsedDueDate.getTime()
     ) {
       activityEntries.push({
         cardId: id,
