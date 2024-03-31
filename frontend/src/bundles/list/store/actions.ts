@@ -18,11 +18,9 @@ const create = createAsyncThunk<
     'lists',
     async(payload, { extra }) => {
         const { listsApi } = extra;
-   
-        const newList = await listsApi.create(payload);
-        const lists = await listsApi.getAll();
-
-        return [...lists, newList]
+        await listsApi.create(payload);
+        
+        return  await listsApi.getAll();
     },
 );
 
