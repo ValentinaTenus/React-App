@@ -27,7 +27,9 @@ _To work properly, install dependencies **` npm install`**  and fill in the **`.
 
 ## Start
 
-Clone project`s [repo](https://github.com/ValentinaTenus/React-App):
+- Clone project`s [repo](https://github.com/ValentinaTenus/React-App);
+
+- To work properly, install dependencies **` npm install`** in the root folder (React-App)
 
 ### Shared
 1.  In the command line (terminal) go to the folder shared:
