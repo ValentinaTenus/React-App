@@ -35,7 +35,7 @@ const { reducer, actions, name } = createSlice({
             state.dataStatus = DataStatus.REJECTED;
         });
         builder.addMatcher(isAnyOf(create.fulfilled), (state, action) => {
-            state.cards = [...state.cards, action.payload];
+            state.cards = action.payload;
             state.dataStatus = DataStatus.FULFILLED;
         });
         builder.addMatcher(isAnyOf(update.fulfilled, deleteCard.fulfilled), (state, action) => {

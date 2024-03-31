@@ -3,6 +3,7 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { type AsyncThunkConfig } from '~/framework/store/types/async-thunk-config.type.js';
 
 import { type Card, type CreateCardDto, type UpdateCardDto } from '../types/types';
+import { store } from '~/framework/store/store.package';
 
 const getAll = createAsyncThunk<Card[], undefined, AsyncThunkConfig>(
     'cards',
@@ -13,13 +14,15 @@ const getAll = createAsyncThunk<Card[], undefined, AsyncThunkConfig>(
     },
 );
 
-const create = createAsyncThunk<Card, CreateCardDto, AsyncThunkConfig>(
+const create = createAsyncThunk<Card[], CreateCardDto, AsyncThunkConfig>(
     'cards',
-    (payload, { extra }) => {
+    async(payload, { extra }) => {
         const { cardsApi } = extra;
 
-        return cardsApi.create(payload);
-    },
+       await cardsApi.create(payload);
+        
+       return await cardsApi.getAll();
+    },  
 );
 
 const update = createAsyncThunk<
@@ -28,16 +31,10 @@ const update = createAsyncThunk<
      AsyncThunkConfig>(
     'cards', async ({ id, payload }, { extra }) => {
         const { cardsApi } = extra;
+        await  cardsApi.update(id, payload); 
 
-        const updatedCard = await  cardsApi.update(id, payload);  
-        const cards = await cardsApi.getAll();
-
-        return cards.map(card => {
-            return (card.id === updatedCard.id)
-                ? { ...updatedCard }
-                : card
-        });
-    },
+        return await cardsApi.getAll();
+    }
 );
 
 const deleteCard = createAsyncThunk<
@@ -47,10 +44,9 @@ const deleteCard = createAsyncThunk<
     'cards',
     async(id , { extra }) => {
         const { cardsApi } = extra;
-        const deletedCard = await  cardsApi.delete(id); 
-        const cards = await cardsApi.getAll();
+        await  cardsApi.delete(id); 
 
-        return cards.filter(card => card.id !== deletedCard.id);
+        return await cardsApi.getAll();
     },
 );
 
