@@ -39,9 +39,9 @@ const ActivitiesList: React.FC<ActivitiesListProperties> = ({ onClose }) => {
           </button>
         </div>
         <div className={styles.activities_list}>
-          {activities.slice(0, 10).map((activity, index) => (
+          {activities.slice(0, 10).map((activity) => (
               <ActivityItem
-                key={index}
+                key={activity.id}
                 activity={activity}
               />
           ))}
